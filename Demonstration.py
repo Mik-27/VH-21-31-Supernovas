@@ -43,6 +43,8 @@ class Junction:
         l = 0
         r = 0
         c = 0
+        if value > 30:
+            value = 30
         for i in range(value):
             temp = random.randrange(0, 3)
             if temp == 0:
@@ -65,18 +67,54 @@ class Junction:
     def feed(self, node, value, direction):
         if node == 0:
             return
-        elif node == 1:
-            j1.direction += value
-        elif node == 2:
-            j2.direction += value
-        elif node == 3:
-            j3.direction += value
-        elif node == 4:
-            j4.direction += value
-        elif node == 5:
-            j5.direction += value
-        elif node == 6:
-            j6.direction += value
+        elif node == 1 and direction == "north":
+            j1.north += value
+        elif node == 1 and direction == "south":
+            j1.south += value
+        elif node == 1 and direction == "east":
+            j1.east += value
+        elif node == 1 and direction == "west":
+            j1.west += value
+        elif node == 2 and direction == "north":
+            j2.north += value
+        elif node == 2 and direction == "south":
+            j2.south += value
+        elif node == 2 and direction == "east":
+            j2.east += value
+        elif node == 2 and direction == "west":
+            j2.west += value
+        elif node == 3 and direction == "north":
+            j3.north += value
+        elif node == 3 and direction == "south":
+            j3.south += value
+        elif node == 3 and direction == "east":
+            j3.east += value
+        elif node == 3 and direction == "west":
+            j3.west += value
+        elif node == 4 and direction == "north":
+            j4.north += value
+        elif node == 4 and direction == "south":
+            j4.south += value
+        elif node == 4 and direction == "east":
+            j4.east += value
+        elif node == 4 and direction == "west":
+            j4.west += value
+        elif node == 5 and direction == "north":
+            j5.north += value
+        elif node == 5 and direction == "south":
+            j5.south += value
+        elif node == 5 and direction == "east":
+            j5.east += value
+        elif node == 5 and direction == "west":
+            j5.west += value
+        elif node == 6 and direction == "north":
+            j6.north += value
+        elif node == 6 and direction == "south":
+            j6.south += value
+        elif node == 6 and direction == "east":
+            j6.east += value
+        elif node == 6 and direction == "west":
+            j6.west += value
 
     # value = no of cars on lane direction is initial direction
     def distribute(self, value, direction):
@@ -121,8 +159,3 @@ j3 = Junction(3)
 j4 = Junction(4)
 j5 = Junction(5)
 j6 = Junction(6)
-
-
-j1.west = 30
-j1.distribute(j1.west, "w")
-print(j1.west, j2.north, j3.west)
