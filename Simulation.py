@@ -16,6 +16,7 @@ BG_IMG = pygame.image.load("Assets/BG.png")
 def drawWindow():
     WIN.fill((255, 255, 255))
     WIN.blit(BG_IMG, (0, 0))
+    WIN.blit(TRUCK, (0, 0))
     pygame.display.update()
 
 
