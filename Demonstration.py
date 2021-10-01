@@ -10,19 +10,13 @@ junctions = ["j1", "j2", "j3", "j4", "j5", "j6"]
 
 
 class Junction:
-    self.east = 0
-    self.west = 0
-    self.north = 0
-    self.south = 0
-    e_node = 0
-    w_node = 0
-    n_node = 0
-    s_node = 0
-
-    self.green_time = 0
 
     def __init__(self, position):
         self.pos = position
+        self.e_node = 0
+        self.w_node = 0
+        self.n_node = 0
+        self.s_node = 0
         self.east = 0
         self.west = 0
         self.north = 0
@@ -48,7 +42,7 @@ class Junction:
             n_node = 5
             w_node = 4
 
-    def randomize(self, value):
+    def randomize(self, value):  # left,center,right = randomize()
         for i in range(value):
             l = 0
             r = 0
@@ -60,10 +54,10 @@ class Junction:
                 r += 1
             elif temp == 2:
                 c += 1
-        return l, r, c
+        return l, c, r
 
     def calcTime(self, value):
-        #left,right,center = randomize()
+        # left,center,right = randomize()
         if value <= 10:
             return 10
         elif value >= 30:
@@ -87,11 +81,10 @@ class Junction:
         elif node == 6:
             j6.direction += value
 
-        # node.direction += value
-
+    # value = no of cars on lane direction is initial direction
     def distribute(self, value, direction):
         time = calcTime(value)
-        if direction == e:
+        if direction == "e":
             s, w, n = randomize(value)
             self.east -= time
             if self.east < 0:
@@ -99,7 +92,7 @@ class Junction:
             feed(self.s_node, s, "north")
             feed(self.n_node, n, "south")
             feed(self.w_node, w, "east")
-        if direction == w:
+        if direction == "w":
             n, e, s = randomize(value)
             self.west -= time
             if self.west < 0:
@@ -107,7 +100,7 @@ class Junction:
             feed(self.s_node, s, "nouth")
             feed(self.n_node, n, "south")
             feed(self.e_node, e, "west")
-        if direction == n:
+        if direction == "n":
             e, s, w = randomize(value)
             self.north -= time
             if self.north < 0:
@@ -115,7 +108,7 @@ class Junction:
             feed(self.s_node, s, "north")
             feed(self.w_node, w, "east")
             feed(self.e_node, e, "west")
-        if direction == s:
+        if direction == "s":
             w, n, e = randomize(value)
             self.south -= time
             if self.south < 0:
