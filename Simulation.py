@@ -8,6 +8,16 @@ pygame.display.set_caption("Simulation")
 
 # global declarations
 
+default_red = 150
+default_yellow = 5
+default_green = 20
+default_minimum = 10
+default_maximum = 60
+
+truck_width = 12
+truck_height = 45
+
+
 BG_IMG = pygame.image.load("Assets/BG.png")
 
 
