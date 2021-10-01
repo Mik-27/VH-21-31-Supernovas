@@ -1,4 +1,6 @@
 import random
+import pygame
+import time
 
 
 junctions = ["j1", "j2", "j3", "j4", "j5", "j6"]
@@ -18,6 +20,13 @@ class Junction:
         self.west = 0
         self.north = 0
         self.south = 0
+        self.n_time = 0
+        self.s_time = 0
+        self.e_time = 0
+        self.w_time = 20
+        self.counter = 20
+        self.signal = "w"
+        self.checker = True
         if position == 1:
             self.s_node = 2
             self.e_node = 3
@@ -63,6 +72,23 @@ class Junction:
             return 30
         else:
             return 20
+
+    def countDown(self):
+        self.counter -= 1
+        if self.counter == 0:
+            if self.signal == "w":
+                self.signal = "n"
+                self.counter = self.calcTime(self.north)
+            elif self.signal == "n":
+                self.signal = "e"
+                self.counter = self.calcTime(self.east)
+            elif self.signal == "e":
+                self.signal = "s"
+                self.counter = self.calcTime(self.south)
+            elif self.signal == "s":
+                self.signal = "w"
+                self.counter = self.calcTime(self.west)
+            print(self.signal)
 
     def feed(self, node, value, direction):
         if node == 0:
@@ -152,6 +178,20 @@ class Junction:
             self.feed(self.w_node, w, "east")
             self.feed(self.e_node, e, "west")
 
+    def loop(self):
+        if self.checker != self.signal:
+            self.checker = self.signal
+            if self.signal == "n":
+                self.distribute(self.north, self.signal)
+            if self.signal == "e":
+                self.distribute(self.east, self.signal)
+            if self.signal == "w":
+                self.distribute(self.west, self.signal)
+            if self.signal == "s":
+                self.distribute(self.south, self.signal)
+
+        self.countDown()
+
 
 j1 = Junction(1)
 j2 = Junction(2)
@@ -159,3 +199,82 @@ j3 = Junction(3)
 j4 = Junction(4)
 j5 = Junction(5)
 j6 = Junction(6)
+
+
+# pygame
+
+SIGNAL_WIDTH, SIGNAL_HEIGHT = 15, 45
+
+WIDTH, HEIGHT = 1280, 720
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Simulation")
+
+
+BG_IMG = pygame.image.load("Assets/BG.png")
+RED_IMG = pygame.image.load("Assets/Red.png")
+YELLOW_IMG = pygame.image.load("Assets/Yellow.png")
+GREEN_IMG = pygame.image.load("Assets/Green.png")
+RED = pygame.transform.scale(RED_IMG, (SIGNAL_WIDTH, SIGNAL_HEIGHT))
+YELLOW = pygame.transform.scale(YELLOW_IMG, (SIGNAL_WIDTH, SIGNAL_HEIGHT))
+GREEN = pygame.transform.scale(GREEN_IMG, (SIGNAL_WIDTH, SIGNAL_HEIGHT))
+
+
+def drawWindow():
+    WIN.fill((255, 255, 255))
+    WIN.blit(BG_IMG, (0, 0))
+    WIN.blit(RED, (350, 20))  # 1
+    WIN.blit(RED, (670, 20))  # 2
+    WIN.blit(RED, (990, 20))  # 3
+    WIN.blit(RED, (260, 280))  # 4
+    WIN.blit(RED, (580, 280))  # 5
+    WIN.blit(RED, (900, 280))  # 6
+    WIN.blit(RED, (0, 0))  # 7
+    WIN.blit(RED, (0, 0))  # 8
+    WIN.blit(RED, (0, 0))  # 9
+    WIN.blit(RED, (0, 0))  # 10
+    WIN.blit(RED, (0, 0))  # 11
+    WIN.blit(RED, (0, 0))  # 12
+    WIN.blit(RED, (0, 0))  # 13
+    WIN.blit(RED, (0, 0))  # 14
+    WIN.blit(RED, (0, 0))  # 15
+    WIN.blit(RED, (0, 0))  # 16
+    WIN.blit(RED, (0, 0))  # 17
+    WIN.blit(RED, (0, 0))  # 18
+    WIN.blit(RED, (0, 0))  # 19
+    WIN.blit(RED, (0, 0))  # 20
+    WIN.blit(RED, (0, 0))  # 21
+    WIN.blit(RED, (0, 0))  # 22
+    WIN.blit(RED, (0, 0))  # 23
+    WIN.blit(RED, (0, 0))  # 24
+    pygame.draw.circle(WIN, (255, 0, 0), (350, 200), 15)  # 1
+    pygame.display.update()
+
+    # main
+
+
+def main():
+
+    clock = pygame.time.Clock()
+    run = True
+    while run:
+
+        # FPS
+        clock.tick(1)
+
+        # event handler
+        for event in pygame.event.get():
+
+            # exit
+            if event.type == pygame.QUIT:
+                run = False
+        j1.loop()
+        j2.loop()
+        j3.loop()
+
+        drawWindow()
+
+    pygame.quit()
+
+
+if __name__ == "__main__":
+    main()
