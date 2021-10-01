@@ -1,7 +1,4 @@
-import pygame
 import random
-import os
-import sys
 
 
 junctions = ["j1", "j2", "j3", "j4", "j5", "j6"]
@@ -22,32 +19,32 @@ class Junction:
         self.north = 0
         self.south = 0
         if position == 1:
-            s_node = 2
-            e_node = 3
+            self.s_node = 2
+            self.e_node = 3
         elif position == 2:
-            n_node = 1
-            e_node = 4
+            self.n_node = 1
+            self.e_node = 4
         elif position == 3:
-            w_node = 1
-            s_node = 4
-            e_node = 5
+            self.w_node = 1
+            self.s_node = 4
+            self.e_node = 5
         elif position == 4:
-            w_node = 2
-            n_node = 3
-            e_node = 6
+            self.w_node = 2
+            self.n_node = 3
+            self.e_node = 6
         elif position == 5:
-            s_node = 6
-            w_node = 3
+            self.s_node = 6
+            self.w_node = 3
         elif position == 6:
-            n_node = 5
-            w_node = 4
+            self.n_node = 5
+            self.w_node = 4
 
     def randomize(self, value):  # left,center,right = randomize()
+        l = 0
+        r = 0
+        c = 0
         for i in range(value):
-            l = 0
-            r = 0
-            c = 0
-            temp = random.randrange(0, 2)
+            temp = random.randrange(0, 3)
             if temp == 0:
                 l += 1
             elif temp == 1:
@@ -83,39 +80,39 @@ class Junction:
 
     # value = no of cars on lane direction is initial direction
     def distribute(self, value, direction):
-        time = calcTime(value)
+        time = self.calcTime(value)
         if direction == "e":
-            s, w, n = randomize(value)
+            s, w, n = self.randomize(value)
             self.east -= time
             if self.east < 0:
                 self.east = 0
-            feed(self.s_node, s, "north")
-            feed(self.n_node, n, "south")
-            feed(self.w_node, w, "east")
+            self.feed(self.s_node, s, "north")
+            self.feed(self.n_node, n, "south")
+            self.feed(self.w_node, w, "east")
         if direction == "w":
-            n, e, s = randomize(value)
+            n, e, s = self.randomize(value)
             self.west -= time
             if self.west < 0:
                 self.west = 0
-            feed(self.s_node, s, "nouth")
-            feed(self.n_node, n, "south")
-            feed(self.e_node, e, "west")
+            self.feed(self.s_node, s, "north")
+            self.feed(self.n_node, n, "south")
+            self.feed(self.e_node, e, "west")
         if direction == "n":
-            e, s, w = randomize(value)
+            e, s, w = self.randomize(value)
             self.north -= time
             if self.north < 0:
                 self.north = 0
-            feed(self.s_node, s, "north")
-            feed(self.w_node, w, "east")
-            feed(self.e_node, e, "west")
+            self.feed(self.s_node, s, "north")
+            self.feed(self.w_node, w, "east")
+            self.feed(self.e_node, e, "west")
         if direction == "s":
-            w, n, e = randomize(value)
+            w, n, e = self.randomize(value)
             self.south -= time
             if self.south < 0:
                 self.south = 0
-            feed(self.n_node, n, "south")
-            feed(self.w_node, w, "east")
-            feed(self.e_node, e, "west")
+            self.feed(self.n_node, n, "south")
+            self.feed(self.w_node, w, "east")
+            self.feed(self.e_node, e, "west")
 
 
 j1 = Junction(1)
@@ -124,3 +121,8 @@ j3 = Junction(3)
 j4 = Junction(4)
 j5 = Junction(5)
 j6 = Junction(6)
+
+
+j1.west = 30
+j1.distribute(j1.west, "w")
+print(j1.west, j2.north, j3.west)
