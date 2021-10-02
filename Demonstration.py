@@ -74,6 +74,7 @@ class Junction:
             return 20
 
     def countDown(self):
+        print(self.counter)
         self.counter -= 1
         if self.counter == 0:
             if self.signal == "w":
@@ -204,7 +205,10 @@ j1.west = 30
 j1.north = 60
 j1.east = 20
 j1.south = 38
-j1.loop()
+
+while True:
+    j1.loop()
+    time.sleep(1)
 
 
 '''
