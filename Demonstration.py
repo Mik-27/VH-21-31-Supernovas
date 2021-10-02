@@ -23,7 +23,7 @@ class Junction:
         self.n_time = 0
         self.s_time = 0
         self.e_time = 0
-        self.w_time = 20
+        self.w_time = 0
         self.counter = 20
         self.signal = "w"
         self.checker = True
@@ -83,7 +83,10 @@ class Junction:
         print(self.counter)
         self.counter -= 1
         if self.counter == 0:
-            if self.signal == "w":
+
+            # old circular rotation code
+
+            '''if self.signal == "w":
                 self.signal = "n"
                 self.counter = self.calcTime(self.north)
             elif self.signal == "n":
@@ -94,7 +97,77 @@ class Junction:
                 self.counter = self.calcTime(self.south)
             elif self.signal == "s":
                 self.signal = "w"
+                self.counter = self.calcTime(self.west)'''
+
+            # weighted approach
+
+            # penalty logic
+
+            if self.n_time >= 120:
+                self.signal = "n"
+                self.counter = self.calcTime(self.north)
+                self.n_time = 0
+                self.s_time += self.counter
+                self.e_time += self.counter
+                self.w_time += self.counter
+            elif self.e_time >= 120:
+                self.signal = "e"
+                self.counter = self.calcTime(self.east)
+                self.n_time += self.counter
+                self.s_time += self.counter
+                self.e_time = 0
+                self.w_time += self.counter
+            elif self.s_time >= 120:
+                self.signal = "s"
+                self.counter = self.calcTime(self.south)
+                self.n_time += self.counter
+                self.s_time = 0
+                self.e_time += self.counter
+                self.w_time += self.counter
+            elif self.w_time >= 120:
+                self.signal = "w"
                 self.counter = self.calcTime(self.west)
+                self.n_time += self.counter
+                self.s_time += self.counter
+                self.e_time += self.counter
+                self.w_time = 0
+            else:
+
+                # Weight comparison
+                dict = {}
+                dict["n"] = self.north
+                dict["s"] = self.south
+                dict["e"] = self.east
+                dict["w"] = self.west
+
+                a = sorted(dict.items(), key=lambda dict: dict[1])
+
+                self.signal = a[-1][0]
+                if self.signal == "n":
+                    self.counter = self.calcTime(self.north)
+                    self.n_time = 0
+                    self.s_time += self.counter
+                    self.e_time += self.counter
+                    self.w_time += self.counter
+                elif self.signal == "e":
+                    self.counter = self.calcTime(self.east)
+                    self.n_time += self.counter
+                    self.s_time += self.counter
+                    self.e_time = 0
+                    self.w_time += self.counter
+                elif self.signal == "s":
+                    self.counter = self.calcTime(self.south)
+                    self.n_time += self.counter
+                    self.s_time = 0
+                    self.e_time += self.counter
+                    self.w_time += self.counter
+                elif self.signal == "w":
+                    self.counter = self.calcTime(self.west)
+                    self.n_time += self.counter
+                    self.s_time += self.counter
+                    self.e_time += self.counter
+                    self.w_time = 0
+
             print(self.signal)
 
     def feed(self, node, value, direction):
@@ -216,16 +289,16 @@ j6 = Junction(6)
 
 
 # demo
-
-'''j1.west = 30
-j1.north = 60
-j1.east = 20
-j1.south = 38
+'''
+j1.west = 30
+j1.north = 40
+j1.east = 50
+j1.south = 60
 
 while True:
     j1.loop()
-    time.sleep(1)'''
-
+    time.sleep(1)
+'''
 
 '''
 # pygame
