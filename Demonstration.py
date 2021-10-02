@@ -222,12 +222,12 @@ GREEN = pygame.transform.scale(GREEN_IMG, (SIGNAL_WIDTH, SIGNAL_HEIGHT))
 def drawWindow():
     WIN.fill((255, 255, 255))
     WIN.blit(BG_IMG, (0, 0))
-    pygame.draw.circle(WIN, (255, 0, 0), (345, 200), 15)  # 1
-    pygame.draw.circle(WIN, (255, 0, 0), (665, 200), 15)  # 2
-    pygame.draw.circle(WIN, (255, 0, 0), (985, 200), 15)  # 3
-    pygame.draw.circle(WIN, (255, 0, 0), (345, 440), 15)  # 4
-    pygame.draw.circle(WIN, (255, 0, 0), (665, 440), 15)  # 5
-    pygame.draw.circle(WIN, (255, 0, 0), (985, 440), 15)  # 6
+    pygame.draw.circle(WIN, (255, 0, 0), (345, 200), 15)  # j1 north
+    pygame.draw.circle(WIN, (255, 0, 0), (665, 200), 15)  # j2 north
+    pygame.draw.circle(WIN, (255, 0, 0), (985, 200), 15)  # j3 north
+    pygame.draw.circle(WIN, (255, 0, 0), (345, 440), 15)  # j4 north
+    pygame.draw.circle(WIN, (255, 0, 0), (665, 440), 15)  # j5 north
+    pygame.draw.circle(WIN, (255, 0, 0), (985, 440), 15)  # j6 north
     pygame.draw.circle(WIN, (255, 0, 0), (360, 265), 15)  # 7
     pygame.draw.circle(WIN, (255, 0, 0), (680, 265), 15)  # 8
     pygame.draw.circle(WIN, (255, 0, 0), (1000, 265), 15)  # 9
