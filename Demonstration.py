@@ -142,7 +142,9 @@ class Junction:
                 dict2["w"] = self.west
 
                 a = sorted(dict2.items(), key=lambda dict2: dict2[1])
-                self.maxmimum = a[-1][1]
+                # print(a)
+                self.maximum = a[-1][1]
+                # print("Max",self.maximum)
                 if self.maximum == 0:
                     if self.signal == "w":
                         self.signal = "n"
