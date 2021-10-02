@@ -200,7 +200,14 @@ j4 = Junction(4)
 j5 = Junction(5)
 j6 = Junction(6)
 
+j1.west = 30
+j1.north = 60
+j1.east = 20
+j1.south = 38
+j1.loop()
 
+
+'''
 # pygame
 
 SIGNAL_WIDTH, SIGNAL_HEIGHT = 15, 45
@@ -229,7 +236,7 @@ def drawWindow():
     pygame.draw.circle(WIN, (255, 0, 0), (665, 440), 15)  # j5 north
     pygame.draw.circle(WIN, (255, 0, 0), (985, 440), 15)  # j6 north
     pygame.draw.circle(WIN, (255, 0, 0), (360, 265), 15)  # j1 east
-    pygame.draw.circle(WIN, (255, 0, 0), (680, 265), 15)  # 2 east
+    pygame.draw.circle(WIN, (255, 0, 0), (680, 265), 15)  # j2 east
     pygame.draw.circle(WIN, (255, 0, 0), (1000, 265), 15)  # j3 east
     pygame.draw.circle(WIN, (255, 0, 0), (360, 505), 15)  # j4 east
     pygame.draw.circle(WIN, (255, 0, 0), (680, 505), 15)  # j5 east
@@ -277,3 +284,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''
