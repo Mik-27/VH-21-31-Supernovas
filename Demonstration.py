@@ -155,7 +155,10 @@ class Junction:
                     elif self.signal == "s":
                         self.signal = "w"
                 else:
-                    self.signal = a[-1][0]
+                    if self.signal == a[-1][0]:
+                        self.signal = a[-2][0]
+                    else:
+                        self.signal = a[-1][0]
                 if self.signal == "n":
                     #print(self.north, "adghj")
                     self.counter = self.calcTime(self.north)
@@ -327,32 +330,32 @@ while True:
 j1.west = 10
 j1.north = 20
 j1.east = 20
-j1.south = 60
+j1.south = 100
 
 j2.west = 10
 j2.north = 20
 j2.east = 20
-j2.south = 60
+j2.south = 100
 
 j3.west = 10
 j3.north = 20
 j3.east = 20
-j3.south = 60
+j3.south = 100
 
 j4.west = 10
 j4.north = 20
 j4.east = 20
-j4.south = 60
+j4.south = 100
 
 j5.west = 10
 j5.north = 20
 j5.east = 20
-j5.south = 60
+j5.south = 100
 
 j6.west = 10
 j6.north = 20
 j6.east = 20
-j6.south = 60
+j6.south = 100
 
 # pygame
 pygame.init()
