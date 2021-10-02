@@ -222,31 +222,30 @@ GREEN = pygame.transform.scale(GREEN_IMG, (SIGNAL_WIDTH, SIGNAL_HEIGHT))
 def drawWindow():
     WIN.fill((255, 255, 255))
     WIN.blit(BG_IMG, (0, 0))
-    WIN.blit(RED, (350, 20))  # 1
-    WIN.blit(RED, (670, 20))  # 2
-    WIN.blit(RED, (990, 20))  # 3
-    WIN.blit(RED, (260, 280))  # 4
-    WIN.blit(RED, (580, 280))  # 5
-    WIN.blit(RED, (900, 280))  # 6
-    WIN.blit(RED, (0, 0))  # 7
-    WIN.blit(RED, (0, 0))  # 8
-    WIN.blit(RED, (0, 0))  # 9
-    WIN.blit(RED, (0, 0))  # 10
-    WIN.blit(RED, (0, 0))  # 11
-    WIN.blit(RED, (0, 0))  # 12
-    WIN.blit(RED, (0, 0))  # 13
-    WIN.blit(RED, (0, 0))  # 14
-    WIN.blit(RED, (0, 0))  # 15
-    WIN.blit(RED, (0, 0))  # 16
-    WIN.blit(RED, (0, 0))  # 17
-    WIN.blit(RED, (0, 0))  # 18
-    WIN.blit(RED, (0, 0))  # 19
-    WIN.blit(RED, (0, 0))  # 20
-    WIN.blit(RED, (0, 0))  # 21
-    WIN.blit(RED, (0, 0))  # 22
-    WIN.blit(RED, (0, 0))  # 23
-    WIN.blit(RED, (0, 0))  # 24
-    pygame.draw.circle(WIN, (255, 0, 0), (350, 200), 15)  # 1
+    pygame.draw.circle(WIN, (255, 0, 0), (345, 200), 15)  # 1
+    pygame.draw.circle(WIN, (255, 0, 0), (665, 200), 15)  # 2
+    pygame.draw.circle(WIN, (255, 0, 0), (985, 200), 15)  # 3
+    pygame.draw.circle(WIN, (255, 0, 0), (345, 440), 15)  # 4
+    pygame.draw.circle(WIN, (255, 0, 0), (665, 440), 15)  # 5
+    pygame.draw.circle(WIN, (255, 0, 0), (985, 440), 15)  # 6
+    pygame.draw.circle(WIN, (255, 0, 0), (360, 265), 15)  # 7
+    pygame.draw.circle(WIN, (255, 0, 0), (680, 265), 15)  # 8
+    pygame.draw.circle(WIN, (255, 0, 0), (1000, 265), 15)  # 9
+    pygame.draw.circle(WIN, (255, 0, 0), (360, 505), 15)  # 10
+    pygame.draw.circle(WIN, (255, 0, 0), (680, 505), 15)  # 11
+    pygame.draw.circle(WIN, (255, 0, 0), (1000, 505), 15)  # 12
+    pygame.draw.circle(WIN, (255, 0, 0), (280, 217), 15)  # 13
+    pygame.draw.circle(WIN, (255, 0, 0), (600, 217), 15)  # 14
+    pygame.draw.circle(WIN, (255, 0, 0), (920, 217), 15)  # 15
+    pygame.draw.circle(WIN, (255, 0, 0), (280, 457), 15)  # 16
+    pygame.draw.circle(WIN, (255, 0, 0), (600, 457), 15)  # 17
+    pygame.draw.circle(WIN, (255, 0, 0), (920, 457), 15)  # 18
+    pygame.draw.circle(WIN, (255, 0, 0), (295, 280), 15)  # 19
+    pygame.draw.circle(WIN, (255, 0, 0), (615, 280), 15)  # 20
+    pygame.draw.circle(WIN, (255, 0, 0), (935, 280), 15)  # 21
+    pygame.draw.circle(WIN, (255, 0, 0), (295, 520), 15)  # 22
+    pygame.draw.circle(WIN, (255, 0, 0), (615, 520), 15)  # 23
+    pygame.draw.circle(WIN, (255, 0, 0), (935, 520), 15)  # 24
     pygame.display.update()
 
     # main
