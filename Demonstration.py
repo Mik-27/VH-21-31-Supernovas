@@ -300,15 +300,17 @@ while True:
     time.sleep(1)
 '''
 
-'''
-# pygame
 
+# pygame
+pygame.init()
 SIGNAL_WIDTH, SIGNAL_HEIGHT = 15, 45
 
 WIDTH, HEIGHT = 1280, 720
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Simulation")
-
+font = pygame.font.Font(None, 30)
+black = (0,0,0)
+white = (255,255,255) 
 
 BG_IMG = pygame.image.load("Assets/BG.png")
 RED_IMG = pygame.image.load("Assets/Red.png")
@@ -346,10 +348,40 @@ def drawWindow():
     pygame.draw.circle(WIN, (255, 0, 0), (295, 520), 15)  # j4 west
     pygame.draw.circle(WIN, (255, 0, 0), (615, 520), 15)  # j5 west
     pygame.draw.circle(WIN, (255, 0, 0), (935, 520), 15)  # j6 west
+
+    WIN.blit(font.render(str(15), True, black, None), (334, 191))
+    WIN.blit(font.render(str(15), True, black, None), (654, 191))
+    WIN.blit(font.render(str(15), True, black, None), (974, 191))
+    WIN.blit(font.render(str(15), True, black, None), (334, 431))
+    WIN.blit(font.render(str(15), True, black, None), (654, 431))
+    WIN.blit(font.render(str(15), True, black, None), (974, 431))
+    WIN.blit(font.render(str(15), True, black, None), (349, 256))
+    WIN.blit(font.render(str(15), True, black, None), (669, 256))
+    WIN.blit(font.render(str(15), True, black, None), (989, 256))
+    WIN.blit(font.render(str(15), True, black, None), (349, 496))
+    WIN.blit(font.render(str(15), True, black, None), (669, 496))
+    WIN.blit(font.render(str(15), True, black, None), (989, 496))
+    WIN.blit(font.render(str(15), True, black, None), (269, 208))
+    WIN.blit(font.render(str(15), True, black, None), (589, 208))
+    WIN.blit(font.render(str(15), True, black, None), (909, 208))
+    WIN.blit(font.render(str(15), True, black, None), (269, 458))
+    WIN.blit(font.render(str(15), True, black, None), (589, 458))
+    WIN.blit(font.render(str(15), True, black, None), (909, 458))
+    WIN.blit(font.render(str(15), True, black, None), (284, 281))
+    WIN.blit(font.render(str(15), True, black, None), (604, 281))
+    WIN.blit(font.render(str(15), True, black, None), (924, 281))
+    WIN.blit(font.render(str(15), True, black, None), (284, 511))
+    WIN.blit(font.render(str(15), True, black, None), (589, 511))
+    WIN.blit(font.render(str(15), True, black, None), (909, 511))
+
     pygame.display.update()
 
-    # main
-
+#     # main
+# def changeSignal(color, node, position):
+#     if color == 'red':
+#         pygame.draw.circle(WIN, (0, 255, 0), position, 15)
+#     elif color == 'green':
+#         pygame.draw.circle(WIN, (255, 0, 0), position, 15)
 
 def main():
 
@@ -377,4 +409,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
+
