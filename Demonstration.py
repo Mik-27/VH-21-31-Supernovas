@@ -48,6 +48,8 @@ class Junction:
             self.n_node = 5
             self.w_node = 4
 
+    # distribution randomizer
+
     def randomize(self, value):  # left,center,right = randomize()
         l = 0
         r = 0
@@ -64,6 +66,8 @@ class Junction:
                 c += 1
         return l, c, r
 
+    # Traffic Signal Time Function
+
     def calcTime(self, value):
         # left,center,right = randomize()
         if value <= 10:
@@ -72,6 +76,8 @@ class Junction:
             return 30
         else:
             return 20
+
+    # Traffic Signal time countdown function
 
     def countDown(self):
         print(self.counter)
@@ -144,6 +150,9 @@ class Junction:
             j6.west += value
 
     # value = no of cars on lane direction is initial direction
+
+    # lane traffic distribution
+
     def distribute(self, value, direction):
         time = self.calcTime(value)
         if direction == "e":
@@ -179,6 +188,8 @@ class Junction:
             self.feed(self.w_node, w, "east")
             self.feed(self.e_node, e, "west")
 
+    # function to be called in a loop
+
     def loop(self):
         if self.checker != self.signal:
             self.checker = self.signal
@@ -193,6 +204,8 @@ class Junction:
 
         self.countDown()
 
+# obj init
+
 
 j1 = Junction(1)
 j2 = Junction(2)
@@ -201,14 +214,17 @@ j4 = Junction(4)
 j5 = Junction(5)
 j6 = Junction(6)
 
-j1.west = 30
+
+# demo
+
+'''j1.west = 30
 j1.north = 60
 j1.east = 20
 j1.south = 38
 
 while True:
     j1.loop()
-    time.sleep(1)
+    time.sleep(1)'''
 
 
 '''
