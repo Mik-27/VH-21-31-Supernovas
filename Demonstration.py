@@ -228,24 +228,24 @@ def drawWindow():
     pygame.draw.circle(WIN, (255, 0, 0), (345, 440), 15)  # j4 north
     pygame.draw.circle(WIN, (255, 0, 0), (665, 440), 15)  # j5 north
     pygame.draw.circle(WIN, (255, 0, 0), (985, 440), 15)  # j6 north
-    pygame.draw.circle(WIN, (255, 0, 0), (360, 265), 15)  # 7
-    pygame.draw.circle(WIN, (255, 0, 0), (680, 265), 15)  # 8
-    pygame.draw.circle(WIN, (255, 0, 0), (1000, 265), 15)  # 9
-    pygame.draw.circle(WIN, (255, 0, 0), (360, 505), 15)  # 10
-    pygame.draw.circle(WIN, (255, 0, 0), (680, 505), 15)  # 11
-    pygame.draw.circle(WIN, (255, 0, 0), (1000, 505), 15)  # 12
-    pygame.draw.circle(WIN, (255, 0, 0), (280, 217), 15)  # 13
-    pygame.draw.circle(WIN, (255, 0, 0), (600, 217), 15)  # 14
-    pygame.draw.circle(WIN, (255, 0, 0), (920, 217), 15)  # 15
-    pygame.draw.circle(WIN, (255, 0, 0), (280, 457), 15)  # 16
-    pygame.draw.circle(WIN, (255, 0, 0), (600, 457), 15)  # 17
-    pygame.draw.circle(WIN, (255, 0, 0), (920, 457), 15)  # 18
-    pygame.draw.circle(WIN, (255, 0, 0), (295, 280), 15)  # 19
-    pygame.draw.circle(WIN, (255, 0, 0), (615, 280), 15)  # 20
-    pygame.draw.circle(WIN, (255, 0, 0), (935, 280), 15)  # 21
-    pygame.draw.circle(WIN, (255, 0, 0), (295, 520), 15)  # 22
-    pygame.draw.circle(WIN, (255, 0, 0), (615, 520), 15)  # 23
-    pygame.draw.circle(WIN, (255, 0, 0), (935, 520), 15)  # 24
+    pygame.draw.circle(WIN, (255, 0, 0), (360, 265), 15)  # j1 east
+    pygame.draw.circle(WIN, (255, 0, 0), (680, 265), 15)  # 2 east
+    pygame.draw.circle(WIN, (255, 0, 0), (1000, 265), 15)  # j3 east
+    pygame.draw.circle(WIN, (255, 0, 0), (360, 505), 15)  # j4 east
+    pygame.draw.circle(WIN, (255, 0, 0), (680, 505), 15)  # j5 east
+    pygame.draw.circle(WIN, (255, 0, 0), (1000, 505), 15)  # j6 east
+    pygame.draw.circle(WIN, (255, 0, 0), (280, 217), 15)  # j1 south
+    pygame.draw.circle(WIN, (255, 0, 0), (600, 217), 15)  # j2 south
+    pygame.draw.circle(WIN, (255, 0, 0), (920, 217), 15)  # j3 south
+    pygame.draw.circle(WIN, (255, 0, 0), (280, 457), 15)  # j4 south
+    pygame.draw.circle(WIN, (255, 0, 0), (600, 457), 15)  # j5 south
+    pygame.draw.circle(WIN, (255, 0, 0), (920, 457), 15)  # j6 south
+    pygame.draw.circle(WIN, (255, 0, 0), (295, 280), 15)  # j1 west
+    pygame.draw.circle(WIN, (255, 0, 0), (615, 280), 15)  # j2 west
+    pygame.draw.circle(WIN, (255, 0, 0), (935, 280), 15)  # j3 west
+    pygame.draw.circle(WIN, (255, 0, 0), (295, 520), 15)  # j4 west
+    pygame.draw.circle(WIN, (255, 0, 0), (615, 520), 15)  # j5 west
+    pygame.draw.circle(WIN, (255, 0, 0), (935, 520), 15)  # j6 west
     pygame.display.update()
 
     # main
