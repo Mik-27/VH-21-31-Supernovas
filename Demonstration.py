@@ -349,6 +349,7 @@ def drawWindow():
     pygame.draw.circle(WIN, (255, 0, 0), (615, 520), 15)  # j5 west
     pygame.draw.circle(WIN, (255, 0, 0), (935, 520), 15)  # j6 west
 
+    # Vehicle Count
     WIN.blit(font.render(str(15), True, black, None), (334, 191))
     WIN.blit(font.render(str(15), True, black, None), (654, 191))
     WIN.blit(font.render(str(15), True, black, None), (974, 191))
@@ -373,6 +374,14 @@ def drawWindow():
     WIN.blit(font.render(str(15), True, black, None), (284, 511))
     WIN.blit(font.render(str(15), True, black, None), (589, 511))
     WIN.blit(font.render(str(15), True, black, None), (909, 511))
+
+    # Timer
+    WIN.blit(font.render(str(15), True, black, None), (250, 180))
+    WIN.blit(font.render(str(15), True, black, None), (560, 180))
+    WIN.blit(font.render(str(15), True, black, None), (895, 180))
+    WIN.blit(font.render(str(15), True, black, None), (250, 411))
+    WIN.blit(font.render(str(15), True, black, None), (560, 411))
+    WIN.blit(font.render(str(15), True, black, None), (895, 411))
 
     pygame.display.update()
 
